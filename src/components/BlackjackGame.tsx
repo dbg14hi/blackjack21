@@ -72,13 +72,13 @@ const BlackjackGame: React.FC = () => {
 
           {state.gameStatus === 'dealerRevealing' && (
             <div className="dealer-revealing-message">
-              🃏 Revealing dealer's hidden card...
+              Revealing dealer&apos;s hidden card...
             </div>
           )}
 
           {state.gameStatus === 'dealerTurn' && (
             <div className="dealer-turn-message">
-              🎲 Dealer's turn...
+              Dealer&apos;s turn...
             </div>
           )}
 

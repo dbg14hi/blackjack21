@@ -19,7 +19,7 @@ const GameControls: React.FC<GameControlsProps> = ({ state, onHit, onStand, onDo
       )}
       {state.playerHand.value === 21 && (
         <div className="auto-advance-message">
-          🎯 You have 21! Automatically advancing to dealer's turn...
+          🎯 You have 21! Automatically advancing to dealer&apos;s turn...
         </div>
       )}
     </div>
