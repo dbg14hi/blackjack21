@@ -1,0 +1,111 @@
+.statistics {
+  background: linear-gradient(135deg, #4a148c, #7b1fa2);
+  border-radius: 10px;
+  padding: 15px;
+  margin: 15px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 2px solid #e1bee7;
+  color: white;
+}
+
+.statistics h2 {
+  margin: 0 0 20px 0;
+  font-size: 2rem;
+  color: #ffd700;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.stat-label {
+  color: #e1bee7;
+  font-size: 0.85rem;
+}
+
+.stat-value {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.stat-value.wins {
+  color: #4caf50;
+}
+
+.stat-value.losses {
+  color: #f44336;
+}
+
+.stat-value.pushes {
+  color: #ff9800;
+}
+
+.stat-value.percentage {
+  color: #2196f3;
+}
+
+.stat-value.streak {
+  color: #ffd700;
+}
+
+.stat-description {
+  font-size: 0.8rem;
+  color: #e1bee7;
+  opacity: 0.8;
+}
+
+.reset-button {
+  background: linear-gradient(45deg, #f44336, #ef5350);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.reset-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(45deg, #d32f2f, #e53935);
+}
+
+@media (max-width: 768px) {
+  .statistics {
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  .stats-row {
+    gap: 10px;
+  }
+  
+  .stat-item {
+    font-size: 0.8rem;
+  }
+  
+  .stat-label {
+    font-size: 0.75rem;
+  }
+  
+  .stat-value {
+    font-size: 0.9rem;
+  }
+} 

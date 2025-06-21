@@ -1,0 +1,159 @@
+.hand {
+  background: linear-gradient(135deg, #9c27b0, #ba68c8);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border: 3px solid #e1bee7;
+  position: relative;
+  overflow: hidden;
+}
+
+.hand::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+  animation: shimmer 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.hand-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hand-name {
+  color: #ffd700;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hand-value {
+  color: #4caf50;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.bet-amount {
+  color: #ff9800;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hand-cards {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hidden-card {
+  background: linear-gradient(45deg, #2196f3, #42a5f5);
+  border: 3px solid #1976d2;
+  box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4);
+}
+
+.hidden-card::before {
+  content: '?';
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hand.blackjack-celebration {
+  background: linear-gradient(135deg, rgba(225, 190, 231, 0.3), rgba(243, 229, 245, 0.3));
+  border: 2px solid #e1bee7;
+  box-shadow: 0 0 20px rgba(225, 190, 231, 0.5);
+  animation: blackjackGlow 2s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.hand-status {
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  min-width: 100px;
+  transform-origin: center;
+  box-sizing: border-box;
+}
+
+.status-normal {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.status-blackjack {
+  background: linear-gradient(45deg, #7b1fa2, #9c27b0);
+  color: white;
+  border: 2px solid #7b1fa2;
+  animation: pulse 2s infinite;
+}
+
+.status-busted {
+  background: linear-gradient(45deg, #e91e63, #f06292);
+  color: white;
+  border: 2px solid #e91e63;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
+}
+
+@keyframes blackjackGlow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(225, 190, 231, 0.5);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(225, 190, 231, 0.8);
+    transform: scale(1.01);
+  }
+}
+
+@media (max-width: 768px) {
+  .hand {
+    margin: 10px 0;
+    padding: 15px;
+  }
+  
+  .hand-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .hand-name {
+    font-size: 1.2rem;
+  }
+  
+  .hand-status {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+} 

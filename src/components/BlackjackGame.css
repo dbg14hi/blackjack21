@@ -1,0 +1,511 @@
+.blackjack-game {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 50%, #9c27b0 100%);
+  color: white;
+  font-family: 'Arial', sans-serif;
+}
+
+.game-header {
+  text-align: center;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+}
+
+.game-header h1 {
+  margin: 0 0 10px 0;
+  font-size: 3rem;
+  font-weight: bold;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.balance {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4caf50;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.betting-section {
+  text-align: center;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 30px;
+}
+
+.betting-section h2 {
+  margin: 0 0 20px 0;
+  font-size: 2rem;
+  color: #ffd700;
+}
+
+.bet-options {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.bet-options button {
+  padding: 15px 25px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #2196f3, #42a5f5);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bet-options button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(45deg, #1976d2, #2196f3);
+}
+
+.bet-options button.half-bet-button {
+  background: linear-gradient(45deg, #ff9800, #ffb74d);
+  color: white;
+}
+
+.bet-options button.half-bet-button:hover:not(:disabled) {
+  background: linear-gradient(45deg, #f57c00, #ff9800);
+}
+
+.bet-options button.max-bet-button {
+  background: linear-gradient(45deg, #f44336, #ef5350);
+  color: white;
+}
+
+.bet-options button.max-bet-button:hover:not(:disabled) {
+  background: linear-gradient(45deg, #d32f2f, #e53935);
+}
+
+.bet-options button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.current-bet {
+  margin-top: 20px;
+}
+
+.current-bet p {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #ffd700;
+}
+
+.deal-button {
+  padding: 15px 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #ff9800, #ffb74d);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.deal-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.game-controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+  flex-direction: column;
+  align-items: center;
+}
+
+.control-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.control-button.hit {
+  background: linear-gradient(45deg, #4caf50, #66bb6a);
+  color: white;
+}
+
+.control-button.stand {
+  background: linear-gradient(45deg, #f44336, #ef5350);
+  color: white;
+}
+
+.control-button.double-down {
+  background: linear-gradient(45deg, #ff9800, #ffb74d);
+  color: white;
+}
+
+.control-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.auto-advance-message {
+  background: linear-gradient(45deg, #ff9800, #ffb74d);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  animation: pulse 1.5s ease-in-out infinite;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+  transform-origin: center;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.dealer-blackjack-message {
+  background: linear-gradient(45deg, #f44336, #ef5350);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 20px 0;
+  animation: shake 0.5s ease-in-out;
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.4);
+}
+
+.dealer-revealing-message {
+  background: linear-gradient(45deg, #ff9800, #ffb74d);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 20px 0;
+  animation: pulse 1.5s ease-in-out infinite;
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.4);
+  transform-origin: center;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.dealer-turn-message {
+  background: linear-gradient(45deg, #9c27b0, #ba68c8);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 20px 0;
+  animation: gentlePulse 2s ease-in-out infinite;
+  box-shadow: 0 4px 15px rgba(156, 39, 176, 0.4);
+  transform-origin: center;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.game-result {
+  text-align: center;
+  margin: 30px 0;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.result-message {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  animation: fadeIn 0.5s ease-in;
+  transform-origin: center;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.result-win {
+  background: linear-gradient(45deg, #4caf50, #66bb6a);
+  color: white;
+  animation: celebrate 1s ease-in-out;
+}
+
+.result-lose {
+  background: linear-gradient(45deg, #f44336, #ef5350);
+  color: white;
+}
+
+.result-push {
+  background: linear-gradient(45deg, #ff9800, #ffb74d);
+  color: white;
+}
+
+.blackjack-bonus {
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  color: #333;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 15px 25px;
+  border-radius: 25px;
+  margin: 15px 0;
+  text-align: center;
+  animation: blackjackBonus 2s ease-in-out infinite;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+  transform-origin: center;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.new-game-button {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(45deg, #4caf50, #66bb6a);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.bet-info {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffd700;
+  margin: 20px 0;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.custom-bet-section {
+  margin: 20px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.custom-bet-input {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.custom-bet-input label {
+  color: #e1bee7;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.custom-bet-input input {
+  padding: 12px 15px;
+  font-size: 1.1rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  width: 150px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.custom-bet-input input:focus {
+  outline: none;
+  border-color: #e1bee7;
+  box-shadow: 0 0 10px rgba(225, 190, 231, 0.3);
+}
+
+.custom-bet-input input::placeholder {
+  color: #999;
+}
+
+.custom-bet-button {
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #7b1fa2, #9c27b0);
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.custom-bet-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(45deg, #8e24aa, #ab47bc);
+}
+
+.custom-bet-button:disabled {
+  background: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.custom-bet-validation {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.custom-bet-validation .error {
+  color: #f06292;
+}
+
+.custom-bet-validation .valid {
+  color: #81c784;
+}
+
+.betting-status {
+  text-align: center;
+  margin: 10px auto;
+  padding: 8px 16px;
+  background: linear-gradient(45deg, #7b1fa2, #9c27b0);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(123, 31, 162, 0.3);
+  display: inline-block;
+  max-width: 200px;
+}
+
+.betting-status p {
+  margin: 0;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+  animation: gentlePulse 2s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes celebrate {
+  0%, 100% { 
+    transform: scale(1); 
+  }
+  50% { 
+    transform: scale(1.05); 
+  }
+}
+
+@keyframes blackjackBonus {
+  0%, 100% { 
+    transform: scale(1);
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+  }
+  50% { 
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.9;
+  }
+}
+
+@media (max-width: 768px) {
+  .blackjack-game {
+    padding: 10px;
+  }
+  
+  .game-header h1 {
+    font-size: 2rem;
+  }
+  
+  .betting-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .bet-options {
+    gap: 10px;
+  }
+  
+  .bet-options button {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+  
+  .game-controls {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .control-button {
+    width: 200px;
+  }
+  
+  .result-message {
+    font-size: 1.5rem;
+  }
+} 
